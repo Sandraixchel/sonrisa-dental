@@ -23,6 +23,12 @@ export default function Navbar() {
           <Link className="btn btn-outline-light" to="/adduser">
             Add User
           </Link>
+          <Link className="btn btn-outline-light" to="/viewavailableapts">
+            View Available Appointments
+          </Link>
+          <Link className="btn btn-outline-light" to="/allpatients">
+            View All Patients
+          </Link>
         </div>
       </nav>
     </div>
