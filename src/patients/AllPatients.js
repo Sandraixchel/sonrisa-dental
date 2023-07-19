@@ -22,15 +22,22 @@ export default function PatientsHome() {
     loadPatients();
   };
 
-  // <body>
-  //   <div>
-  //     <h1>
-  //       <Link className="btn btn-outline-primary mx-2" to={"/"}>
-  //         Add New Patient
-  //       </Link>
-  //     </h1>
-  //   </div>
-  // </body>;
+  function ButtonLink({ to, children }) {
+    return (
+      <Link to={to}>
+        <button>{children}</button>
+      </Link>
+    );
+  }
+
+  // Usage
+  <ButtonLink to="/addpatient">Add New Patient</ButtonLink>;
+
+  // <a>
+  //   <Link className="btn btn-outline-primary mx-2" to={"/"}>
+  //     Add New Patient
+  //   </Link>
+  // </a>;
   return (
     <div className="container">
       <div className="py-4">

@@ -80,26 +80,26 @@ export default function EditPatient() {
             </div>
             <div className="mb-3">
               <label htmlFor="Email" className="form-label">
-                E-mail
+                Date of Birth
               </label>
               <input
                 type={"text"}
                 className="form-control"
-                placeholder="Enter your e-mail address"
-                name="email"
+                placeholder="Enter date of birth"
+                name="dob"
                 value={dob}
                 onChange={(e) => onInputChange(e)}
               />
             </div>
             <div className="mb-3">
               <label htmlFor="Email" className="form-label">
-                E-mail
+                Phone Number
               </label>
               <input
                 type={"text"}
                 className="form-control"
-                placeholder="Enter your e-mail address"
-                name="email"
+                placeholder="Enter phone number"
+                name="phone_number"
                 value={phone_number}
                 onChange={(e) => onInputChange(e)}
               />
@@ -111,34 +111,34 @@ export default function EditPatient() {
               <input
                 type={"text"}
                 className="form-control"
-                placeholder="Enter your e-mail address"
+                placeholder="Enter e-mail address"
                 name="email"
                 value={email}
                 onChange={(e) => onInputChange(e)}
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="Email" className="form-label">
-                E-mail
+              <label htmlFor="insurance_provider" className="form-label">
+                Insurance Provider
               </label>
               <input
                 type={"text"}
                 className="form-control"
-                placeholder="Enter your e-mail address"
-                name="email"
+                placeholder="Enter Insurance Provider"
+                name="insurance_provider"
                 value={insurance_provider}
                 onChange={(e) => onInputChange(e)}
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="Email" className="form-label">
-                E-mail
+              <label htmlFor="insurance_number" className="form-label">
+                Insurance Number
               </label>
               <input
                 type={"text"}
                 className="form-control"
-                placeholder="Enter your e-mail address"
-                name="email"
+                placeholder="Enter Insurance Number"
+                name="insurance_number"
                 value={insurance_number}
                 onChange={(e) => onInputChange(e)}
               />
