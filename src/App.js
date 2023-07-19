@@ -34,8 +34,8 @@ function App() {
             element={<ViewAvailableAppointments />}
           />
           <Route exact path="/allpatients" element={<AllPatients />} />
-          <Route exact path="/viewpatient" element={<ViewPatient />} />
-          <Route exact path="/editpatient" element={<EditPatient />} />
+          <Route exact path="/viewpatient/:id" element={<ViewPatient />} />
+          <Route exact path="/editpatient/:id" element={<EditPatient />} />
           <Route exact path="/addpatient" element={<AddPatient />} />
         </Routes>
       </Router>

@@ -31,7 +31,6 @@ export default function PatientsHome() {
   }
 
   // Usage
-  <ButtonLink to="/addpatient">Add New Patient</ButtonLink>;
 
   // <a>
   //   <Link className="btn btn-outline-primary mx-2" to={"/"}>
@@ -41,6 +40,7 @@ export default function PatientsHome() {
   return (
     <div className="container">
       <div className="py-4">
+        <ButtonLink to="/addpatient">Add New Patient</ButtonLink>
         <table className="table border shadow">
           <thead>
             <tr>
@@ -52,10 +52,10 @@ export default function PatientsHome() {
             </tr>
           </thead>
           <tbody>
-            {patients.map((patient, index) => (
+            {patients.map((patient) => (
               <tr>
-                <th scope="row" key={index}>
-                  {index + 1}
+                <th scope="row" key={patient.id}>
+                  {patient.id}
                 </th>
                 <td>{patient.first_name}</td>
                 <td>{patient.last_name}</td>
