@@ -12,7 +12,9 @@ export default function ViewAvailableAppointments() {
   }, []);
 
   const loadAppointment = async () => {
-    const result = await axios.get("http://localhost:8080/appointments");
+    const result = await axios.get(
+      "http://localhost:8080/available-appointments?date=2023-07-23&type=EMERGENCY"
+    );
 
     //const result = await axios.get(`http://localhost:8080/user/${id}`);
     setAppointment(result.data);
