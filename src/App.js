@@ -14,6 +14,11 @@ import ViewPatient from "./patients/ViewPatient";
 import EditPatient from "./patients/EditPatient";
 import AddPatient from "./patients/AddPatient";
 
+import AllStaff from "./staff/AllStaff";
+import AddStaff from "./staff/AddStaff";
+import EditStaff from "./staff/EditStaff";
+import ViewStaff from "./staff/ViewStaff";
+
 function App() {
   return (
     <div className="App">
@@ -37,6 +42,11 @@ function App() {
           <Route exact path="/viewpatient/:id" element={<ViewPatient />} />
           <Route exact path="/editpatient/:id" element={<EditPatient />} />
           <Route exact path="/addpatient" element={<AddPatient />} />
+
+          <Route exact path="/allstaff" element={<AllStaff />} />
+          <Route exact path="/viewstaff/:id" element={<ViewStaff />} />
+          <Route exact path="/editstaff/:id" element={<EditStaff />} />
+          <Route exact path="/addstaff" element={<AddStaff />} />
         </Routes>
       </Router>
     </div>

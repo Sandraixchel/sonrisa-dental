@@ -65,8 +65,8 @@ export default function ViewPatient() {
               </ul>
             </div>
           </div>
-          <Link className="btn btn-primary my-2" to={"/"}>
-            Back to Home
+          <Link className="btn btn-primary my-2" to={"/allpatients"}>
+            Back to All patients
           </Link>
         </div>
       </div>

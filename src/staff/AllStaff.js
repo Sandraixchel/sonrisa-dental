@@ -2,24 +2,24 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
-export default function AllPatients() {
-  const [patients, setPatients] = useState([]);
+export default function AllStaff() {
+  const [staffs, setStaff] = useState([]);
 
   const { id } = useParams();
 
   useEffect(() => {
-    loadPatients();
+    loadStaff();
   }, []);
 
-  const loadPatients = async () => {
-    const result = await axios.get("http://localhost:8080/patients");
-    setPatients(result.data);
+  const loadStaff = async () => {
+    const result = await axios.get("http://localhost:8080/allstaff");
+    setStaff(result.data);
   };
-  //function to deleting the patient
+  //function to deleting the Staff
 
-  const deletePatient = async (id) => {
-    await axios.delete(`http://localhost:8080/patient/${id}`);
-    loadPatients();
+  const deleteStaff = async (id) => {
+    await axios.delete(`http://localhost:8080/staff/${id}`);
+    loadStaff();
   };
 
   function ButtonLink({ to, children }) {
@@ -40,8 +40,8 @@ export default function AllPatients() {
   return (
     <div className="container">
       <div className="py-4">
-        <ButtonLink className="btn btn-outline-primary mx-2" to="/addpatient">
-          Add New Patient
+        <ButtonLink className="btn btn-outline-primary mx-2" to="/addstaff">
+          Add New Staff
         </ButtonLink>
         <table className="table border shadow">
           <thead>
@@ -54,31 +54,31 @@ export default function AllPatients() {
             </tr>
           </thead>
           <tbody>
-            {patients.map((patient) => (
+            {staffs.map((staff) => (
               <tr>
-                <th scope="row" key={patient.id}>
-                  {patient.id}
+                <th scope="row" key={staff.id}>
+                  {staff.id}
                 </th>
-                <td>{patient.first_name}</td>
-                <td>{patient.last_name}</td>
-                <td>{patient.phone_number}</td>
-                <td>{patient.email}</td>
+                <td>{staff.first_name}</td>
+                <td>{staff.last_name}</td>
+                <td>{staff.phone_number}</td>
+                <td>{staff.email}</td>
                 <td>
                   <Link
                     className="btn btn-primary mx-2"
-                    to={`/viewpatient/${patient.id}`}
+                    to={`/viewpatient/${staff.id}`}
                   >
                     More Details
                   </Link>
                   <Link
                     className="btn btn-outline-primary mx-2"
-                    to={`/editpatient/${patient.id}`}
+                    to={`/editpatient/${staff.id}`}
                   >
                     Edit
                   </Link>
                   <button
                     className="btn btn-danger mx-2"
-                    onClick={() => deletePatient(patient.id)}
+                    onClick={() => deleteStaff(staff.id)}
                   >
                     Delete
                   </button>
