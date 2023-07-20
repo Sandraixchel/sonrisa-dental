@@ -38,7 +38,7 @@ export default function EditPatient() {
   const onSubmit = async (e) => {
     e.preventDefault();
     await axios.put(`http://localhost:8080/patient/${id}`, patient); //To PUT info into the data base by using axios
-    navigate("/"); //To redirect to home page
+    navigate("/"); //To redirect to all patients page
   };
 
   const loadPatient = async () => {

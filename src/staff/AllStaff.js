@@ -22,27 +22,28 @@ export default function AllStaff() {
     loadStaff();
   };
 
-  function ButtonLink({ to, children }) {
-    return (
-      <Link to={to}>
-        <button>{children}</button>
-      </Link>
-    );
-  }
+  //   function ButtonLink({ to, children }) {
+  //     return (
+  //       <Link to={to}>
+  //         <button>{children}</button>
+  //       </Link>
+  //     );
+  //   }
 
   // Usage
 
-  // <a>
-  //   <Link className="btn btn-outline-primary mx-2" to={"/"}>
-  //     Add New Patient
-  //   </Link>
-  // </a>;
   return (
     <div className="container">
       <div className="py-4">
-        <ButtonLink className="btn btn-outline-primary mx-2" to="/addstaff">
+        {/* <ButtonLink className="btn btn-outline-primary mx-2" to="/addstaff">
           Add New Staff
-        </ButtonLink>
+        </ButtonLink> */}
+        <a>
+          <Link className="btn btn-outline-primary mx-2" to={"/addstaff"}>
+            Add New Staff
+          </Link>
+        </a>
+
         <table className="table border shadow">
           <thead>
             <tr>
@@ -66,13 +67,13 @@ export default function AllStaff() {
                 <td>
                   <Link
                     className="btn btn-primary mx-2"
-                    to={`/viewpatient/${staff.id}`}
+                    to={`/viewstaff/${staff.id}`}
                   >
                     More Details
                   </Link>
                   <Link
                     className="btn btn-outline-primary mx-2"
-                    to={`/editpatient/${staff.id}`}
+                    to={`/editstaff/${staff.id}`}
                   >
                     Edit
                   </Link>

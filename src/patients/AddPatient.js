@@ -32,7 +32,7 @@ export default function AddPatient() {
   const onSubmit = async (e) => {
     e.preventDefault();
     await axios.post("http://localhost:8080/patient", patient); //To POST info into the data base by using axios
-    navigate("/"); //To redirect to home page
+    navigate("/allpatients"); //To redirect to home page
   };
 
   return (
@@ -68,7 +68,7 @@ export default function AddPatient() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="Email" className="form-label">
+              <label htmlFor="dob" className="form-label">
                 Date of Birth
               </label>
               <input
@@ -81,7 +81,7 @@ export default function AddPatient() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="Email" className="form-label">
+              <label htmlFor="phone_number" className="form-label">
                 Phone Number
               </label>
               <input

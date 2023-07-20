@@ -20,8 +20,8 @@ export default function Navbar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <Link className="btn btn-outline-light" to="/adduser">
-            Add User
+          <Link className="btn btn-outline-light" to="/allstaff">
+            View All Staff
           </Link>
           <Link className="btn btn-outline-light" to="/viewavailableapts">
             View Available Appointments

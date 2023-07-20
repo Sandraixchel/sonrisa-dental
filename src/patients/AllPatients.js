@@ -32,17 +32,18 @@ export default function AllPatients() {
 
   // Usage
 
-  // <a>
-  //   <Link className="btn btn-outline-primary mx-2" to={"/"}>
-  //     Add New Patient
-  //   </Link>
-  // </a>;
   return (
     <div className="container">
       <div className="py-4">
-        <ButtonLink className="btn btn-outline-primary mx-2" to="/addpatient">
+        {/* <ButtonLink className="btn btn-outline-primary mx-2" to="/addpatient">
           Add New Patient
-        </ButtonLink>
+        </ButtonLink> */}
+
+        <a>
+          <Link className="btn btn-outline-primary mx-2" to={"/addpatient"}>
+            Add New Patient
+          </Link>
+        </a>
         <table className="table border shadow">
           <thead>
             <tr>

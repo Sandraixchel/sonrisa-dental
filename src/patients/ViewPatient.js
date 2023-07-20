@@ -31,7 +31,7 @@ export default function ViewPatient() {
           <h2 className="text-center m-4">Patient Details</h2>
           <div className="card">
             <div className="card-header">
-              Details of patient ID:
+              Details of patient ID: {patient.id}
               <ul className="list-group list-group flush">
                 <li className="list-group-item">
                   <b>Name:</b>
