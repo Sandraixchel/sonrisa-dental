@@ -22,23 +22,11 @@ export default function AllPatients() {
     loadPatients();
   };
 
-  function ButtonLink({ to, children }) {
-    return (
-      <Link to={to}>
-        <button>{children}</button>
-      </Link>
-    );
-  }
-
   // Usage
 
   return (
     <div className="container">
       <div className="py-4">
-        {/* <ButtonLink className="btn btn-outline-primary mx-2" to="/addpatient">
-          Add New Patient
-        </ButtonLink> */}
-
         <a>
           <Link className="btn btn-outline-primary mx-2" to={"/addpatient"}>
             Add New Patient
