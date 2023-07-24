@@ -18,14 +18,14 @@ export default function ViewAvailableAppointments() {
   //it creates an async funtion sending get requests to the Spring server
   const loadAppointment = async () => {
     const result = await axios.get(
-      `http://localhost:8080/available-appointments?date=2023-07-24&type=${selectedAppointmentType}` //itll send the back end whatever the current vlue of the drop down is and loads appoinments for that type
+      `http://localhost:8080/available-appointments?date=2023-07-19&type=${selectedAppointmentType}` //itll send the back end whatever the current vlue of the drop down is and loads appoinments for that type
     );
 
     //const result = await axios.get(`http://localhost:8080/user/${id}`);
 
     console.log(result);
 
-    setAppointment(result.data["2023-07-24"]);
+    setAppointment(result.data["2023-07-19"]);
   };
 
   return (
@@ -41,6 +41,7 @@ export default function ViewAvailableAppointments() {
           <option value="FILLING">Filling</option>
           <option value="EXTRACTION">Extraction</option>
           <option value="VENEERS">Veneers</option>
+          <option value="CROWN">Crown</option>
         </select>
 
         {selectedAppointmentType}

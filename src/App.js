@@ -19,6 +19,8 @@ import AddStaff from "./staff/AddStaff";
 import EditStaff from "./staff/EditStaff";
 import ViewStaff from "./staff/ViewStaff";
 
+import SelectDentist from "./dentists/SelectDentist";
+
 function App() {
   return (
     <div className="App">
@@ -47,6 +49,8 @@ function App() {
           <Route exact path="/viewstaff/:id" element={<ViewStaff />} />
           <Route exact path="/editstaff/:id" element={<EditStaff />} />
           <Route exact path="/addstaff" element={<AddStaff />} />
+
+          <Route exact path="/selectdentist" element={<SelectDentist />} />
         </Routes>
       </Router>
     </div>
