@@ -13,7 +13,7 @@ export default function ViewPatient() {
     insurance_number: "",
   });
 
-  const { id } = useParams();
+  const { id } = useParams(); //The id of the patient that we are currently viewing
 
   useEffect(() => {
     loadPatient();
