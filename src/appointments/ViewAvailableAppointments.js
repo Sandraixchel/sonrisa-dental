@@ -13,6 +13,8 @@ export default function ViewAvailableAppointments() {
 
   const { staff_id } = useParams(); //Information/properties that are passed in to the component from another component
 
+  const [selected_slot, setSelectedSlot] = useState(); // Declare a variable to store value for selected slot time
+
   //Run the function when the component loads
   useEffect(() => {
     loadAppointment(); //It reloads the appoinmnets whenever the variabe in the array changes, in this case selectedAppointmentType
@@ -33,6 +35,26 @@ export default function ViewAvailableAppointments() {
     console.log(result);
 
     setAppointment(result.data[formatted_date]);
+  };
+
+  const bookAppointment = async () => {
+    //Only if bookAppoinment function is clicked this function will get triggered
+
+    const offset = selected_date.getTimezoneOffset();
+    let formatted_date = new Date(selected_date.getTime() - offset * 60 * 1000);
+    formatted_date = formatted_date.toISOString().split("T")[0];
+
+    const appointmentBody = {
+      type: selectedAppointmentType,
+      date: formatted_date,
+      start_time: selected_slot,
+      patient_id: 102, // To do: replace with a variable
+      staff_id: staff_id,
+    };
+    const result = await axios.post(
+      "http://localhost:8080/appointment",
+      appointmentBody
+    );
   };
 
   return (
@@ -67,11 +89,34 @@ export default function ViewAvailableAppointments() {
           {selectedAppointmentType}
 
           <div className="row">
-            {appointments.map((appointment) => (
-              <button type="button" className="btn btn-outline-primary">
-                {appointment}
+            {appointments.map(
+              (
+                appointment //Display all available appoinments for the selected date/tye/staff_id
+              ) => (
+                <button
+                  type="button"
+                  className={`btn ${
+                    appointment === selected_slot
+                      ? "btn-primary"
+                      : "btn-outline-primary"
+                  }`}
+                  onClick={(e) => setSelectedSlot(appointment)} //Create a function to set the value of the selected slot when the button is clicked in one of the slots
+                >
+                  {appointment}
+                </button>
+              )
+            )}
+          </div>
+          <div>
+            {selected_slot ? ( //ternary condition to only show the "Book Appointment" button if selected_slot has been given a value
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={(e) => bookAppointment()}
+              >
+                Book Appointment
               </button>
-            ))}
+            ) : null}
           </div>
         </div>
       </div>
