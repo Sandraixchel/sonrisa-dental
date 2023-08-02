@@ -18,6 +18,7 @@ export default function ViewAvailableAppointments() {
   //Run the function when the component loads
   useEffect(() => {
     loadAppointment(); //It reloads the appoinmnets whenever the variabe in the array changes, in this case selectedAppointmentType
+    setSelectedSlot(null);
   }, [selectedAppointmentType, selected_date]);
 
   //it creates an async funtion sending get requests to the Spring server
@@ -34,7 +35,7 @@ export default function ViewAvailableAppointments() {
 
     console.log(result);
 
-    setAppointment(result.data[formatted_date]);
+    setAppointment(result.data);
   };
 
   const bookAppointment = async () => {
@@ -47,14 +48,17 @@ export default function ViewAvailableAppointments() {
     const appointmentBody = {
       type: selectedAppointmentType,
       date: formatted_date,
-      start_time: selected_slot,
-      patient_id: 102, // To do: replace with a variable
-      staff_id: staff_id,
+      start_time: selected_slot.start_time,
+      end_time: selected_slot.end_time,
+      patient: { id: 102 }, // To do: replace with a variable
+      staff: { id: staff_id },
     };
     const result = await axios.post(
       "http://localhost:8080/appointment",
       appointmentBody
     );
+
+    alert("Appointment Booked!");
   };
 
   return (
@@ -90,6 +94,7 @@ export default function ViewAvailableAppointments() {
 
           <div className="row">
             {appointments.map(
+              //Almost a for loop and returns a button for each appointment
               (
                 appointment //Display all available appoinments for the selected date/tye/staff_id
               ) => (
@@ -102,7 +107,8 @@ export default function ViewAvailableAppointments() {
                   }`}
                   onClick={(e) => setSelectedSlot(appointment)} //Create a function to set the value of the selected slot when the button is clicked in one of the slots
                 >
-                  {appointment}
+                  {appointment.start_time}-{appointment.end_time}{" "}
+                  {/* What will be displayed in the button */}
                 </button>
               )
             )}
