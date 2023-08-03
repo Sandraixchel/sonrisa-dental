@@ -7,7 +7,7 @@ export const SideBar = [
   //Creates an Array of objects with our menu options
   {
     title: "About Us",
-    path: "/aboutus",
+    path: "/",
     icon: <AiIcons.AiFillHome />,
     cName: "nav-text",
   },
@@ -19,13 +19,13 @@ export const SideBar = [
   },
   {
     title: "Patient Login",
-    path: "/patientlogin",
+    path: "/patientsignin",
     icon: <FaIcons.FaCartPlus />,
     cName: "nav-text",
   },
   {
     title: "Register",
-    path: "/patientregister",
+    path: "/patientsignup",
     icon: <IoIcons.IoMdPeople />,
     cName: "nav-text",
   },

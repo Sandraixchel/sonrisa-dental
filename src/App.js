@@ -25,8 +25,9 @@ import AllPatients from "./patients/AllPatients";
 import ViewPatient from "./patients/ViewPatient";
 import EditPatient from "./patients/EditPatient";
 import AddPatient from "./patients/AddPatient";
-import PatientLogin from "./patients/PatientLogin";
-import PatientRegister from "./patients/PatientRegister";
+import PatientSignIn from "./patients/PatientSignIn";
+import PatientSignUp from "./patients/PatientSignUp";
+import CompleteProfile from "./patients/CompleteProfile";
 
 //Staff
 import AllStaff from "./staff/AllStaff";
@@ -71,8 +72,13 @@ function App() {
           <Route exact path="/viewpatient/:id" element={<ViewPatient />} />
           <Route exact path="/editpatient/:id" element={<EditPatient />} />
           <Route exact path="/addpatient" element={<AddPatient />} />
-          <Route exact path="/patientlogin" element={<PatientLogin />} />
-          <Route exact path="/patientregister" element={<PatientRegister />} />
+          <Route exact path="/patientsignin" element={<PatientSignIn />} />
+          <Route exact path="/patientsignup" element={<PatientSignUp />} />
+          <Route
+            exact
+            path="/completeprofile/:id"
+            element={<CompleteProfile />}
+          />
 
           {/* staff */}
           <Route exact path="/allstaff" element={<AllStaff />} />
