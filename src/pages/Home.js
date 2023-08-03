@@ -25,10 +25,12 @@ export default function Home() {
   return (
     <div className="home">
       <h1>Sonrisa Dental Clinic </h1>
-      <Link to="/allusers">a reason to smile</Link>
-      <li>
-        <img src="/Users/Sandy/Desktop/sonrisa-dental/src/HomePagePic.jpeg" />
-      </li>
+
+      <h2>
+        <br />
+        <Link to="/allusers">a reason to smile</Link>
+      </h2>
+      <img src="/Users/Sandy/Desktop/sonrisa-dental/src/HomePagePic.jpeg" />
     </div>
   );
 }
