@@ -19,8 +19,8 @@ export default function PatientRegister() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/patient", patient); //To POST info into the data base by using axios
-    navigate("/completeprofile"); //To redirect to comlete patient's profile page
+    const result = await axios.post("http://localhost:8080/patient", patient); //To POST info into the data base by using axios
+    navigate(`/completeprofile/${result.data.id}`); //To redirect to complete patient's profile page by using the id given by the back end
   };
 
   return (
@@ -37,7 +37,7 @@ export default function PatientRegister() {
                 type={"text"}
                 className="form-control"
                 placeholder="Enter your first name"
-                name="email"
+                name="first_name"
                 value={first_name}
                 onChange={(e) => onInputChange(e)}
               />

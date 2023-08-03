@@ -27,10 +27,12 @@ export default function Home() {
       <h1>Sonrisa Dental Clinic </h1>
 
       <h2>
-        <br />
-        <Link to="/allusers">a reason to smile</Link>
+        <br />a reason to smile
       </h2>
-      <img src="/Users/Sandy/Desktop/sonrisa-dental/src/HomePagePic.jpeg" />
+      <img src="/assets/images/HomePagePic.jpeg" width="100px" />
+      <Link className="btn btn-primary my-2" to={"/selectdentist"}>
+        Book Now
+      </Link>
     </div>
   );
 }
