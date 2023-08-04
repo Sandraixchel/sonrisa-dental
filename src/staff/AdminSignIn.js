@@ -2,27 +2,24 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function PatientSignIn() {
+export default function AdminSignIn() {
   let navigate = useNavigate();
 
-  const [patient, setPatient] = useState({
+  const [staff, setStaff] = useState({
     email: "",
     password: "",
   });
 
-  const { email, password } = patient;
+  const { email, password } = staff;
 
   const onInputChange = (e) => {
-    setPatient({ ...patient, [e.target.name]: e.target.value });
+    setStaff({ ...staff, [e.target.name]: e.target.value });
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const result = await axios.post(
-      "http://localhost:8080/patientsignin",
-      patient
-    ); //To POST info into the data base by using axios
-    navigate(`/patientprofile/${result.data.id}`); //To redirect to patient's profile page by using the id given by the back end
+    const result = await axios.post("http://localhost:8080/staffsignin", staff); //To POST info into the data base by using axios
+    navigate(`/viewstaff/${result.data.id}`); //To redirect to  patient's profile page by using the id given by the back end
   };
 
   return (
@@ -30,7 +27,7 @@ export default function PatientSignIn() {
       <img src="/assets/images/SonrisaDentalLogo.png" />
       <div className="row">
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-          <h2 className="text-center m-4">Patient Sign In</h2>
+          <h2 className="text-center m-4">Staff Sign In</h2>
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="mb-3">
               <label htmlFor="Email" className="form-label">

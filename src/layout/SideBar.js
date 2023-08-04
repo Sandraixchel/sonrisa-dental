@@ -30,8 +30,8 @@ export const SideBar = [
     cName: "nav-text",
   },
   {
-    title: "Admin Login",
-    path: "/adminlogin",
+    title: "Admin Sign In",
+    path: "/adminsignin",
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: "nav-text",
   },

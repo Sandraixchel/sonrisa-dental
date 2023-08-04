@@ -28,6 +28,7 @@ import AddPatient from "./patients/AddPatient";
 import PatientSignIn from "./patients/PatientSignIn";
 import PatientSignUp from "./patients/PatientSignUp";
 import CompleteProfile from "./patients/CompleteProfile";
+import PatientProfile from "./patients/PatientProfile";
 
 //Staff
 import AllStaff from "./staff/AllStaff";
@@ -35,7 +36,7 @@ import AddStaff from "./staff/AddStaff";
 import EditStaff from "./staff/EditStaff";
 import ViewStaff from "./staff/ViewStaff";
 import AdminLogin from "./staff/AdminLogin";
-
+import AdminSignIn from "./staff/AdminSignIn";
 //Dentist
 import SelectDentist from "./dentists/SelectDentist";
 
@@ -79,6 +80,11 @@ function App() {
             path="/completeprofile/:id"
             element={<CompleteProfile />}
           />
+          <Route
+            exact
+            path="/patientprofile/:id"
+            element={<PatientProfile />}
+          />
 
           {/* staff */}
           <Route exact path="/allstaff" element={<AllStaff />} />
@@ -86,6 +92,7 @@ function App() {
           <Route exact path="/editstaff/:id" element={<EditStaff />} />
           <Route exact path="/addstaff" element={<AddStaff />} />
           <Route exact path="/adminlogin" element={<AdminLogin />} />
+          <Route exact path="/adminsignin" element={<AdminSignIn />} />
 
           {/* dentist */}
           <Route exact path="/selectdentist" element={<SelectDentist />} />
