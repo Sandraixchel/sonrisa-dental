@@ -50,7 +50,7 @@ export default function PatientSignIn() {
                 Password
               </label>
               <input
-                type={"text"}
+                type={"password"} //It doesnt remember past inputs and shows dots when youre typing
                 className="form-control"
                 placeholder="Enter password"
                 name="password"

@@ -47,7 +47,7 @@ export default function AdminSignIn() {
                 Password
               </label>
               <input
-                type={"text"}
+                type={"password"}
                 className="form-control"
                 placeholder="Enter password"
                 name="password"

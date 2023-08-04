@@ -14,7 +14,16 @@ import Diversity3Icon from "@mui/icons-material/Diversity3";
 
 export default function AdminDesktop() {
   return (
-    <Box sx={{ width: "100%", maxWidth: 1100, bgcolor: "background.paper" }}>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        maxWidth: 2100,
+        bgcolor: "background.paper",
+      }}
+    >
       <nav aria-label="main mailbox folders">
         <List>
           <ListItem disablePadding>
@@ -60,20 +69,6 @@ export default function AdminDesktop() {
         </List>
       </nav>
       <Divider />
-      <nav aria-label="secondary mailbox folders">
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemText primary="Trash" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
-              <ListItemText primary="Spam" />
-            </ListItemButton>
-          </ListItem>
-        </List>
-      </nav>
     </Box>
   );
 }

@@ -19,6 +19,10 @@ import AllUsers from "./users/AllUsers";
 
 //Appointments
 import ViewAvailableAppointments from "./appointments/ViewAvailableAppointments"; // We need to import the file ViewAvailableAppointments
+import ViewBookedAppointments from "./appointments/ViewBookedAppointments";
+import ViewByWeek from "./appointments/ViewByWeek";
+import ViewByDate from "./appointments/ViewByDate";
+import ViewByDentist from "./appointments/ViewByDentist";
 
 //Patients
 import AllPatients from "./patients/AllPatients";
@@ -68,6 +72,14 @@ function App() {
             path="/viewavailableapts/:staff_id"
             element={<ViewAvailableAppointments />}
           />
+          <Route
+            exact
+            path="/viewbookedapt"
+            element={<ViewBookedAppointments />}
+          />
+          <Route exact path="/viewbyweek" element={<ViewByWeek />} />
+          <Route exact path="/viewbydate" element={<ViewByDate />} />
+          <Route exact path="/viewbydentist" element={<ViewByDentist />} />
 
           {/* patients */}
           <Route exact path="/allpatients" element={<AllPatients />} />
