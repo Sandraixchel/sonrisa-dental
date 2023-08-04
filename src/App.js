@@ -35,8 +35,9 @@ import AllStaff from "./staff/AllStaff";
 import AddStaff from "./staff/AddStaff";
 import EditStaff from "./staff/EditStaff";
 import ViewStaff from "./staff/ViewStaff";
-import AdminLogin from "./staff/AdminLogin";
+import AdminDesktop from "./staff/AdminDesktop";
 import AdminSignIn from "./staff/AdminSignIn";
+
 //Dentist
 import SelectDentist from "./dentists/SelectDentist";
 
@@ -91,7 +92,7 @@ function App() {
           <Route exact path="/viewstaff/:id" element={<ViewStaff />} />
           <Route exact path="/editstaff/:id" element={<EditStaff />} />
           <Route exact path="/addstaff" element={<AddStaff />} />
-          <Route exact path="/adminlogin" element={<AdminLogin />} />
+          <Route exact path="/admindesktop" element={<AdminDesktop />} />
           <Route exact path="/adminsignin" element={<AdminSignIn />} />
 
           {/* dentist */}

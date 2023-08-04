@@ -18,8 +18,8 @@ export default function AdminSignIn() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const result = await axios.post("http://localhost:8080/staffsignin", staff); //To POST info into the data base by using axios
-    navigate(`/viewstaff/${result.data.id}`); //To redirect to  patient's profile page by using the id given by the back end
+    const result = await axios.post("http://localhost:8080/adminsignin", staff); //To POST info into the data base by using axios
+    navigate(`/admindesktop`); //To redirect to  patient's profile page by using the id given by the back end
   };
 
   return (
@@ -27,7 +27,7 @@ export default function AdminSignIn() {
       <img src="/assets/images/SonrisaDentalLogo.png" />
       <div className="row">
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-          <h2 className="text-center m-4">Staff Sign In</h2>
+          <h2 className="text-center m-4">Administrator</h2>
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="mb-3">
               <label htmlFor="Email" className="form-label">
@@ -59,7 +59,7 @@ export default function AdminSignIn() {
             <button type="submit" className="btn btn-outline-primary">
               Submit
             </button>
-            <Link className="btn btn-outline-danger mx-2" to="/allpatients">
+            <Link className="btn btn-outline-danger mx-2" to="/">
               Cancel
             </Link>
           </form>
