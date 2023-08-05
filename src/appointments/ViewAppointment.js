@@ -4,69 +4,79 @@ import axios from "axios";
 
 export default function ViewAppointment() {
   const [appointment, setAppointment] = useState({
-    first_name: "",
-    last_name: "",
-    dob: "",
-    phone_number: "",
-    email: "",
-    insurance_provider: "",
-    insurance_number: "",
+    date: "",
+    end_time: "",
+    start_time: "",
+    type: "",
+    patient: {}, //Because they come back as objects, thats why it needs to be an object space empty
+    staff: {},
+    cost: "",
+    status: "",
+    extra_items: [],
   });
 
-  const { id } = useParams(); //The id of the patient that we are currently viewing
+  const { id } = useParams(); //The id of the appointment that we are currently viewing
 
   useEffect(() => {
-    loadPatient();
+    loadAppointment();
   }, []);
 
-  const loadPatient = async () => {
-    const result = await axios.get(`http://localhost:8080/patient/${id}`);
-    setPatient(result.data);
+  const loadAppointment = async () => {
+    const result = await axios.get(`http://localhost:8080/appointment/${id}`);
+    setAppointment(result.data);
   };
 
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-          <h2 className="text-center m-4">Patient Details</h2>
+          <h2 className="text-center m-4">Appointment Details</h2>
           <div className="card">
             <div className="card-header">
-              Details of patient ID: {patient.id}
+              Details of Appointment ID: {appointment.id}
               <ul className="list-group list-group flush">
                 <li className="list-group-item">
-                  <b>Name:</b>
+                  <b>Date:</b>
 
-                  {patient.first_name}
+                  {appointment.date}
                 </li>
                 <li className="list-group-item">
-                  <b>Surname:</b>
-                  {patient.last_name}
+                  <b>Start time:</b>
+                  {appointment.start_time}
                 </li>
                 <li className="list-group-item">
-                  <b>DOB:</b>
-                  {patient.dob}
+                  <b>End time:</b>
+                  {appointment.end_time}
                 </li>
                 <li className="list-group-item">
-                  <b>phone_number:</b>
-                  {patient.phone_number}
+                  <b>Type:</b>
+                  {appointment.type}
                 </li>
                 <li className="list-group-item">
-                  <b>email address:</b>
-                  {patient.email}
+                  <b>Patient ID:</b>
+                  {appointment.patient.id}
                 </li>
                 <li className="list-group-item">
-                  <b>Insurance Provider:</b>
-                  {patient.insurance_provider}
+                  <b>Dentist ID:</b>
+                  {appointment.staff.id}
                 </li>
                 <li className="list-group-item">
-                  <b>Insurance Number:</b>
-                  {patient.insurance_number}
+                  <b>Cost:</b>
+                  {appointment.cost}
+                </li>
+                <li className="list-group-item">
+                  <b>Status:</b>
+                  {appointment.status}
+                </li>
+                <li className="list-group-item">
+                  <b>Extra Items:</b>
+                  {appointment.extra_items.length}
                 </li>
               </ul>
             </div>
           </div>
-          <Link className="btn btn-primary my-2" to={"/allpatients"}>
-            Back to All patients
+          <Link className="btn btn-primary my-2" to={"/viewbookedapt"}>
+            Back to all appointments
           </Link>
         </div>
       </div>

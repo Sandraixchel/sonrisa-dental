@@ -61,19 +61,19 @@ export default function ViewBookedAppointments() {
                 <td>{appointment.patient?.id}</td>
                 <td>{appointment.staff?.id}</td>
                 <td>
-                  {/* <Link
+                  <Link
                     className="btn btn-primary mx-2"
-                    to={`/viewpatient/${patient.id}`}
+                    to={`/viewappointment/${appointment.id}`}
                   >
-                    More Details
+                    View
                   </Link>
                   <Link
                     className="btn btn-outline-primary mx-2"
-                    to={`/editpatient/${patient.id}`}
+                    to={`/editappointment/${appointment.id}`}
                   >
                     Edit
                   </Link>
-                  <button
+                  {/* <button
                     className="btn btn-danger mx-2"
                     onClick={() => deletePatient(patient.id)}
                   >
