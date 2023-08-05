@@ -139,4 +139,22 @@ span {
 }
 .calendar {
   margin-left: 260px;
+  height: 50vh;
+}
+
+/* Print Mode */
+@media print {
+  .navbar,
+  .calendarButtons {
+    display: none;
+  }
+
+  .calendar {
+    margin-left: 0;
+  }
+}
+/* It  lets the print mode to keep the colors on the calendar */
+body {
+  print-color-adjust: exact !important;
+  -webkit-print-color-adjust: exact !important;
 }

@@ -4,6 +4,17 @@ import axios from "axios";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
+//Creates a map linking the appointment type with its respective cost
+const APPOINTMENT_COSTS = {
+  CLEANING: 80,
+  EXAM: 50,
+  EMERGENCY: 100,
+  FILLING: 170,
+  EXTRACTION: 150,
+  VENEERS: 250,
+  CROWN: 900,
+};
+
 export default function ViewAvailableAppointments() {
   const [appointments, setAppointment] = useState([]);
   const [selectedAppointmentType, setSelectedAppoinmentType] =
@@ -50,6 +61,7 @@ export default function ViewAvailableAppointments() {
       date: formatted_date,
       start_time: selected_slot.start_time,
       end_time: selected_slot.end_time,
+      cost: APPOINTMENT_COSTS[selectedAppointmentType], //Set the values of the map to the costs variabe
       patient: { id: 102 }, // To do: replace with a variable
       staff: { id: staff_id },
     };
