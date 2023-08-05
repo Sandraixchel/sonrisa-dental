@@ -27,7 +27,7 @@ export default function AdminDesktop() {
       <nav aria-label="main mailbox folders">
         <List>
           <ListItem disablePadding>
-            <ListItemButton to="/">
+            <ListItemButton to="/viewbookedapt">
               <ListItemIcon>
                 <CalendarMonthIcon />
               </ListItemIcon>

@@ -3,15 +3,17 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
 export default function ViewBookedAppointments() {
-  const [appointments, setAppointments] = useState([]);
+  const [appointments, setAppointments] = useState([]); //Sets the variable appointments the vaue of the arraylist sent by the backend
 
   const { id } = useParams();
 
   useEffect(() => {
+    //When the component first renders, he loadAppoinments function is triggered
     loadAppointments();
   }, []);
 
   const loadAppointments = async () => {
+    //Funtion to loaad all the appointments
     const result = await axios.get("http://localhost:8080/appointments");
     setAppointments(result.data);
   };
