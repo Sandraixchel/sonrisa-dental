@@ -22,6 +22,7 @@ export default function PatientSignIn() {
       "http://localhost:8080/patientsignin",
       patient
     ); //To POST info into the data base by using axios
+    localStorage.setItem("patient", JSON.stringify(result.data)); //to local store the patient object
     navigate(`/patientprofile/${result.data.id}`); //To redirect to patient's profile page by using the id given by the back end
   };
 

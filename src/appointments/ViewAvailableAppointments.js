@@ -17,6 +17,7 @@ const APPOINTMENT_COSTS = {
 
 export default function ViewAvailableAppointments() {
   const [appointments, setAppointment] = useState([]);
+
   const [selectedAppointmentType, setSelectedAppoinmentType] =
     useState("CLEANING"); // Declare new variable to store what is currently selecting on the drop down
   // ...
@@ -25,6 +26,12 @@ export default function ViewAvailableAppointments() {
   const { staff_id } = useParams(); //Information/properties that are passed in to the component from another component
 
   const [selected_slot, setSelectedSlot] = useState(); // Declare a variable to store value for selected slot time
+
+  const [selected_patient, setSelectedPatient] = useState();
+
+  useEffect(() => {
+    setSelectedPatient(JSON.parse(localStorage.getItem("patient"))); //Access the local storage and pull the stored patient object
+  }, []);
 
   //Run the function when the component loads
   useEffect(() => {
@@ -62,7 +69,7 @@ export default function ViewAvailableAppointments() {
       start_time: selected_slot.start_time,
       end_time: selected_slot.end_time,
       cost: APPOINTMENT_COSTS[selectedAppointmentType], //Set the values of the map to the costs variabe
-      patient: { id: 102 }, // To do: replace with a variable
+      patient: { id: selected_patient.id },
       staff: { id: staff_id },
     };
     const result = await axios.post(
