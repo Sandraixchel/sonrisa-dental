@@ -28,14 +28,8 @@ export default function ViewBookedAppointments() {
     <div className="container">
       <div className="py-4">
         <a>
-          <Link className="btn btn-outline-primary mx-2" to={"/addpatient"}>
-            View By Date
-          </Link>
           <Link className="btn btn-outline-primary mx-2" to={"/viewbyweek"}>
-            View By Week
-          </Link>
-          <Link className="btn btn-outline-primary mx-2" to={"/addpatient"}>
-            View By Dentist
+            View Calendar
           </Link>
         </a>
         <table className="table border shadow">
