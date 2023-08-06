@@ -17,12 +17,13 @@ export default function ViewBookedAppointments() {
     const result = await axios.get("http://localhost:8080/appointments");
     setAppointments(result.data);
   };
-  //function to deleting the patient
 
-  //  const deletePatient = async (id) => {
-  //    await axios.delete(`http://localhost:8080/patient/${id}`);
-  //    loadPatients();
-  //  };
+  //function to deleting the appointment
+
+  const deleteAppointment = async (id) => {
+    await axios.delete(`http://localhost:8080/appointment/${id}`);
+    loadAppointments();
+  };
 
   return (
     <div className="container">
@@ -73,12 +74,12 @@ export default function ViewBookedAppointments() {
                   >
                     Edit
                   </Link>
-                  {/* <button
+                  <button
                     className="btn btn-danger mx-2"
-                    onClick={() => deletePatient(patient.id)}
+                    onClick={() => deleteAppointment(appointment.id)}
                   >
                     Delete
-                  </button> */}
+                  </button>
                 </td>
               </tr>
             ))}
