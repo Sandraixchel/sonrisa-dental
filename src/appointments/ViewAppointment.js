@@ -62,7 +62,7 @@ export default function ViewAppointment() {
                 </li>
                 <li className="list-group-item">
                   <b>Cost:</b>
-                  {appointment.cost}
+                  {appointment.cost} €
                 </li>
                 <li className="list-group-item">
                   <b>Status:</b>

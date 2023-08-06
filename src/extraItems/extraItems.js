@@ -20,7 +20,6 @@ const EXTRA_ITEMS_COST = {
   "Curasept 200": 10.49,
   "Curasept 220": 11.49,
   "Curasept 250": 11.89,
-  "Curasept 250": 11.89,
   "Fluoride Mouthwash": 7.59,
   "Whitening 8%": 25.99,
   "Whitening 10%": 29.99,

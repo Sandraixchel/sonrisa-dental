@@ -54,7 +54,7 @@ export default function ViewBookedAppointments() {
                   {appointment.id}
                 </th>
                 <td>{appointment.type}</td>
-                <td>{appointment.cost}</td>
+                <td>{appointment.cost} €</td>
                 <td>{appointment.status}</td>
                 <td>{appointment.date}</td>
                 <td>

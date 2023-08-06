@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import PrintIcon from "@mui/icons-material/Print";
+import Button from "@mui/material/Button";
 
 export default function InvoiceAppointment() {
   const [appointment, setAppointment] = useState({
@@ -39,45 +41,58 @@ export default function InvoiceAppointment() {
 
   return (
     <div className="container">
+      <Button
+        className="print-button"
+        onClick={() => {
+          window.print();
+        }}
+        variant="outlined"
+        startIcon={<PrintIcon color="action" />}
+      >
+        Print
+      </Button>
       <div className="row">
-        <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-          <h2 className="text-center m-4">Invoice</h2>
-          <div className="card">
-            <div className="card-header">
-              <ul className="list-group list-group flush">
-                <li className="list-group-item">
-                  <b>Patient</b>
-                  {appointment.patient.first_name}{" "}
-                  {appointment.patient.last_name}
-                </li>
-                <li className="list-group-item">
-                  <b>Email address: </b>
-                  {appointment.patient.email}
-                </li>
-                <li className="list-group-item">
-                  <b>Date: </b>
-                  {appointment.date}
-                </li>
-                <li className="list-group-item">
-                  <b>Type: </b>
-                  {appointment.type}
-                </li>
-                <li className="list-group-item">
-                  Base Cost: {appointment.cost}
-                  {appointment.extra_items.map((extra_item) => (
-                    <div>
-                      {extra_item.item_name}: {extra_item.cost}
-                    </div>
-                  ))}
-                  <b>Total Cost: {totalCost} </b>
-                </li>
-              </ul>
-            </div>
+        {/* <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow"> */}
+        <h2 className="text-center mt-4">Invoice</h2>
+        <div>
+          <div>
+            <ul className="list-group list-group flush">
+              <li className="list-group-item">
+                <b>Patient: </b>
+                {appointment.patient.first_name} {appointment.patient.last_name}
+              </li>
+              <li className="list-group-item">
+                <b>Email address: </b>
+                {appointment.patient.email}
+              </li>
+              <li className="list-group-item">
+                <b>Date: </b>
+                {appointment.date}
+              </li>
+              <li className="list-group-item">
+                <b>Type: </b>
+                {appointment.type}
+              </li>
+              <li className="list-group-item">
+                Base Cost : {appointment.cost} €
+                {appointment.extra_items.map((extra_item) => (
+                  <div>
+                    {extra_item.item_name} : {extra_item.cost} €
+                  </div>
+                ))}
+                <br></br>
+                <b>Total Cost: {totalCost} € </b>
+              </li>
+            </ul>
           </div>
-          <Link className="btn btn-primary my-2" to={"/viewbookedapt"}>
-            Back to all appointments
-          </Link>
         </div>
+        <Link
+          className="btn btn-primary my-2  back-button"
+          to={"/viewbookedapt"}
+        >
+          Back to all appointments
+        </Link>
+        {/* </div> */}
       </div>
     </div>
   );

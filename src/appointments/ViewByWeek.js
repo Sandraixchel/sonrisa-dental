@@ -96,7 +96,17 @@ export default function ViewByWeek() {
       };
     });
 
-    setAppointmentsData(convertedData); // sets the value of appointmentsData to our converted Appointment (the whole ArrayList)
+    const lunch = {
+      title: "Lunch",
+      startDate: new Date(2023, 8, 6, 12, 0),
+      endDate: new Date(2023, 8, 6, 13, 0),
+      id: 0,
+      rRule: "FREQ=DAILY;BYDAY=MO,TU,WE,TH,FR",
+    };
+
+    //convertedData.push(lunch);
+
+    setAppointmentsData(convertedData.concat([lunch])); // sets the value of appointmentsData to our converted Appointment (the whole ArrayList)
   };
 
   return (
@@ -136,8 +146,8 @@ export default function ViewByWeek() {
         <Scheduler data={appointmentsData} height={"auto"}>
           <ViewState defaultCurrentViewName="Week" />
           <DayView startDayHour={7} endDayHour={18} />
-          <WeekView startDayHour={7} endDayHour={18} />
-          <Toolbar />
+          <WeekView cellDuration={60} startDayHour={7} endDayHour={18} />
+          <Toolbar className="calendar-toolbar" />
           <DateNavigator />
           <TodayButton />
           <ViewSwitcher />

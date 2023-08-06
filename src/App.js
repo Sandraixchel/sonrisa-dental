@@ -45,6 +45,7 @@ import AdminSignIn from "./staff/AdminSignIn";
 
 //Dentist
 import SelectDentist from "./dentists/SelectDentist";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 //React Router, here we define the routes and the paths
 function App() {
@@ -105,8 +106,13 @@ function App() {
           <Route
             exact
             path="/completeprofile/:id"
-            element={<CompleteProfile />}
+            element={
+              <ProtectedRoute>
+                <CompleteProfile />
+              </ProtectedRoute>
+            }
           />
+
           <Route
             exact
             path="/patientprofile/:id"

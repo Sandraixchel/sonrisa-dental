@@ -145,8 +145,11 @@ span {
 /* Print Mode */
 @media print {
   .navbar,
-  .calendarButtons {
-    display: none;
+  .calendarButtons,
+  .print-button,
+  .back-button,
+  .MuiToolbar-root {
+    display: none !important;
   }
 
   .calendar {
