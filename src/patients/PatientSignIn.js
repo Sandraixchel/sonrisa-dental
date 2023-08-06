@@ -25,6 +25,7 @@ export default function PatientSignIn() {
 
     localStorage.setItem("patient", JSON.stringify(result.data)); //to local store the patient object
     navigate(`/patientprofile/${result.data.id}`); //To redirect to patient's profile page by using the id given by the back end
+    window.location.reload();
   };
 
   return (

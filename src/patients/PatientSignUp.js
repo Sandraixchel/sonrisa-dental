@@ -21,6 +21,7 @@ export default function PatientRegister() {
     e.preventDefault();
     const result = await axios.post("http://localhost:8080/patient", patient); //To POST info into the data base by using axios
     navigate(`/completeprofile/${result.data.id}`); //To redirect to complete patient's profile page by using the id given by the back end
+    window.location.reload(); //Reloads the page in order to get the data stored in local storage
   };
 
   return (

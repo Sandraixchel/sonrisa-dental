@@ -1,15 +1,44 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import { SideBar } from "./SideBar";
+import { SideBarAll, SideBarPatient, SideBarAdmin } from "./SideBar";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+
 import "../App.css";
 import { IconContext } from "react-icons";
 
 export default function Navbar() {
   const [sidebar, setSidebar] = useState(false);
+  let navigate = useNavigate();
+
+  const [admin, setAdmin] = useLocalStorage("admin", null); //Pull admin object from local storage
+  const [patient, setPatient] = useLocalStorage("patient", null); //Pull patient object from local storage
+
+  const [sideBarOptions, setSideBarOptions] = useState(SideBarAll);
+
+  useEffect(() => {
+    if (admin) {
+      setSideBarOptions(SideBarAdmin);
+    } else if (patient) {
+      setSideBarOptions(SideBarPatient(patient.id));
+    } else {
+      setSideBarOptions(SideBarAll);
+    }
+  }, [
+    admin,
+    patient,
+    localStorage.getItem("admin"),
+    localStorage.getItem("patient"),
+  ]);
 
   const showSidebar = () => setSidebar(!sidebar);
+
+  const logOut = () => {
+    localStorage.clear(); //This will delete adta in the local storage
+    navigate("/");
+    window.location.reload(); //Reloads the page in order to get the data stored in local storage
+  };
 
   return (
     <>
@@ -26,7 +55,7 @@ export default function Navbar() {
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>
-            {SideBar.map((item, index) => {
+            {sideBarOptions.map((item, index) => {
               //We are going to map the SideBar data here
               return (
                 <li key={index} className={item.cName}>
@@ -37,6 +66,13 @@ export default function Navbar() {
                 </li>
               );
             })}
+            {(admin || patient) && (
+              <li>
+                <button className="btn btn-outline-primary" onClick={logOut}>
+                  Log Out
+                </button>
+              </li>
+            )}
           </ul>
         </nav>
       </IconContext.Provider>
