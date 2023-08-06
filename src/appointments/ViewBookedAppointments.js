@@ -41,8 +41,8 @@ export default function ViewBookedAppointments() {
               <th scope="col">Cost</th>
               <th scope="col">Status</th>
               <th scope="col">Date</th>
-              <th scope="col">Start Time</th>
-              <th scope="col">End Time</th>
+              <th scope="col">Time</th>
+
               <th scope="col">Patient ID</th>
               <th scope="col">Staff ID</th>
             </tr>
@@ -57,8 +57,10 @@ export default function ViewBookedAppointments() {
                 <td>{appointment.cost}</td>
                 <td>{appointment.status}</td>
                 <td>{appointment.date}</td>
-                <td>{appointment.start_time}</td>
-                <td>{appointment.end_time}</td>
+                <td>
+                  {appointment.start_time}-{appointment.end_time}
+                </td>
+
                 <td>{appointment.patient?.id}</td>
                 <td>{appointment.staff?.id}</td>
                 <td>

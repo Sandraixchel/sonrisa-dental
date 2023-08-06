@@ -23,6 +23,7 @@ import ViewBookedAppointments from "./appointments/ViewBookedAppointments";
 import ViewByWeek from "./appointments/ViewByWeek";
 import ViewAppointment from "./appointments/ViewAppointment";
 import EditAppointment from "./appointments/EditAppointment";
+import InvoiceAppointment from "./appointments/InvoiceAppointment";
 
 //Patients
 import AllPatients from "./patients/AllPatients";
@@ -87,6 +88,11 @@ function App() {
             exact
             path="/editappointment/:id"
             element={<EditAppointment />}
+          />
+          <Route
+            exact
+            path="/invoice_appointment/:id"
+            element={<InvoiceAppointment />}
           />
 
           {/* patients */}
