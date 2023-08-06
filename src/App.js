@@ -1,5 +1,6 @@
 import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { useEffect } from "react";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -45,7 +46,11 @@ import AdminSignIn from "./staff/AdminSignIn";
 
 //Dentist
 import SelectDentist from "./dentists/SelectDentist";
+
+//Components
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { AdminProtectedRoute } from "./components/AdminProtectedRoute";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 //React Router, here we define the routes and the paths
 function App() {
@@ -77,7 +82,11 @@ function App() {
           <Route
             exact
             path="/viewbookedapt"
-            element={<ViewBookedAppointments />}
+            element={
+              <AdminProtectedRoute>
+                <ViewBookedAppointments />
+              </AdminProtectedRoute>
+            }
           />
           <Route exact path="/viewbyweek" element={<ViewByWeek />} />
           <Route

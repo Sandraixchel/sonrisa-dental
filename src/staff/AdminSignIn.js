@@ -19,7 +19,8 @@ export default function AdminSignIn() {
   const onSubmit = async (e) => {
     e.preventDefault();
     const result = await axios.post("http://localhost:8080/adminsignin", staff); //To POST info into the data base by using axios
-    navigate(`/admindesktop`); //To redirect to  patient's profile page by using the id given by the back end
+    localStorage.setItem("admin", JSON.stringify(result.data)); //to local store the staff object whenever the admin signs in
+    navigate(`/admindesktop`); //To redirect the admin to admin desktop once its signed in
   };
 
   return (
