@@ -60,7 +60,26 @@ function App() {
         <Navbar />
 
         <Routes>
-          {/*layout. Do I need to add one for SideBar?  */}
+          {/* Protected Routes Patient */}
+          <Route element={<ProtectedRoute />}>
+            <Route
+              exact
+              path="/completeprofile/:id"
+              element={<CompleteProfile />}
+            />
+            <Route
+              exact
+              path="/patientprofile/:id"
+              element={<PatientProfile />}
+            />
+            <Route exact path="/editpatient/:id" element={<EditPatient />} />
+            <Route exact path="/selectdentist" element={<SelectDentist />} />
+            <Route
+              exact
+              path="/viewavailableapts/:staff_id"
+              element={<ViewAvailableAppointments />}
+            />
+          </Route>
 
           {/* pages */}
           <Route exact path="/" element={<Home />} />
@@ -73,71 +92,47 @@ function App() {
           <Route exact path="/viewuser/:id" element={<ViewUser />} />
           <Route exact path="/allusers" element={<AllUsers />} />
 
-          {/*appointment  */}
-          <Route
-            exact
-            path="/viewavailableapts/:staff_id"
-            element={<ViewAvailableAppointments />}
-          />
-          <Route
-            exact
-            path="/viewbookedapt"
-            element={
-              <AdminProtectedRoute>
-                <ViewBookedAppointments />
-              </AdminProtectedRoute>
-            }
-          />
-          <Route exact path="/viewbyweek" element={<ViewByWeek />} />
-          <Route
-            exact
-            path="/viewappointment/:id"
-            element={<ViewAppointment />}
-          />
-          <Route
-            exact
-            path="/editappointment/:id"
-            element={<EditAppointment />}
-          />
-          <Route
-            exact
-            path="/invoice_appointment/:id"
-            element={<InvoiceAppointment />}
-          />
+          {/* Protected Routes Admin */}
+          <Route element={<AdminProtectedRoute />}>
+            <Route
+              exact
+              path="/viewbookedapt"
+              element={<ViewBookedAppointments />}
+            />
+            <Route exact path="/viewbyweek" element={<ViewByWeek />} />
+            <Route
+              exact
+              path="/viewappointment/:id"
+              element={<ViewAppointment />}
+            />
+            <Route
+              exact
+              path="/editappointment/:id"
+              element={<EditAppointment />}
+            />
+            <Route
+              exact
+              path="/invoice_appointment/:id"
+              element={<InvoiceAppointment />}
+            />
+            <Route exact path="/allstaff" element={<AllStaff />} />
+            <Route exact path="/viewstaff/:id" element={<ViewStaff />} />
+            <Route exact path="/editstaff/:id" element={<EditStaff />} />
+            <Route exact path="/addstaff" element={<AddStaff />} />
+            <Route exact path="/admindesktop" element={<AdminDesktop />} />
+          </Route>
 
           {/* patients */}
           <Route exact path="/allpatients" element={<AllPatients />} />
           <Route exact path="/viewpatient/:id" element={<ViewPatient />} />
-          <Route exact path="/editpatient/:id" element={<EditPatient />} />
+
           <Route exact path="/addpatient" element={<AddPatient />} />
           <Route exact path="/patientsignin" element={<PatientSignIn />} />
           <Route exact path="/patientsignup" element={<PatientSignUp />} />
-          <Route
-            exact
-            path="/completeprofile/:id"
-            element={
-              <ProtectedRoute>
-                <CompleteProfile />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            exact
-            path="/patientprofile/:id"
-            element={<PatientProfile />}
-          />
 
           {/* staff */}
-          <Route exact path="/allstaff" element={<AllStaff />} />
-          <Route exact path="/viewstaff/:id" element={<ViewStaff />} />
-          <Route exact path="/editstaff/:id" element={<EditStaff />} />
-          <Route exact path="/addstaff" element={<AddStaff />} />
-          <Route exact path="/admindesktop" element={<AdminDesktop />} />
-          <Route exact path="/adminsignin" element={<AdminSignIn />} />
 
-          {/* dentist */}
-          <Route exact path="/selectdentist" element={<SelectDentist />} />
+          <Route exact path="/adminsignin" element={<AdminSignIn />} />
         </Routes>
       </Router>
     </div>

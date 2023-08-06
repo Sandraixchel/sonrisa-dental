@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export default function EditPatient() {
   let navigate = useNavigate();
 
   const { id } = useParams();
+
+  const [loggedInPatient, _] = useLocalStorage("patient", null); //Pull patient object from local storage
 
   const [patient, setPatient] = useState({
     first_name: "",
@@ -30,7 +33,12 @@ export default function EditPatient() {
   };
 
   useEffect(() => {
-    loadPatient();
+    if (loggedInPatient?.id === Number(id)) {
+      //compares the patient id stored in local storage with the one that is trying to access the page, if its equal then patient's data will be loaded
+      loadPatient();
+    } else {
+      navigate("/patientsignin");
+    }
   }, []);
 
   const onSubmit = async (e) => {
