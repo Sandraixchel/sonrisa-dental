@@ -68,6 +68,11 @@ export default function PatientSignIn() {
             <Link className="btn btn-outline-danger mx-2" to="/">
               Cancel
             </Link>
+            <hr />
+            <div>Don't have an account?</div>
+            <Link underline="always" to="/patientsignup">
+              Create one now
+            </Link>
           </form>
         </div>
       </div>

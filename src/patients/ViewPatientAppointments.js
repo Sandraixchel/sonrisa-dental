@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
-export default function ViewBookedAppointments() {
+export default function ViewPatientAppointments() {
   const [appointments, setAppointments] = useState([]); //Sets the variable appointments the vaue of the arraylist sent by the backend
 
-  const { id } = useParams();
+  const { patient_id } = useParams();
 
   useEffect(() => {
     //When the component first renders, he loadAppoinments function is triggered
@@ -14,29 +14,15 @@ export default function ViewBookedAppointments() {
 
   const loadAppointments = async () => {
     //Funtion to loaad all the appointments
-    const result = await axios.get("http://localhost:8080/appointments");
+    const result = await axios.get(
+      `http://localhost:8080/appointment_patient/${patient_id}`
+    );
     setAppointments(result.data);
-  };
-
-  //function to deleting the appointment
-
-  const deleteAppointment = async (id) => {
-    await axios.delete(`http://localhost:8080/appointment/${id}`);
-    loadAppointments();
   };
 
   return (
     <div className="container">
       <div className="py-4">
-        <a>
-          <Link
-            className="btn btn-outline-primary btn-lg mx-2"
-            to={"/viewbyweek"}
-          >
-            View Appointments in Calendar
-          </Link>
-        </a>
-
         <table className="table border shadow">
           <thead>
             <tr>
@@ -68,7 +54,7 @@ export default function ViewBookedAppointments() {
                 <td>{appointment.patient?.id}</td>
                 <td>{appointment.staff?.id}</td>
                 <td>
-                  <Link
+                  {/* <Link
                     className="btn btn-primary btn-sm mx-2"
                     to={`/viewappointment/${appointment.id}`}
                   >
@@ -85,13 +71,13 @@ export default function ViewBookedAppointments() {
                     to={`/invoice_appointment/${appointment.id}`}
                   >
                     Invoice
-                  </Link>
-                  <button
+                  </Link> */}
+                  {/* <button
                     className="btn btn-danger btn-sm mx-2"
                     onClick={() => deleteAppointment(appointment.id)}
                   >
                     Delete
-                  </button>
+                  </button> */}
                 </td>
               </tr>
             ))}

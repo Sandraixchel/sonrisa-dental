@@ -24,7 +24,7 @@ export const SideBarAll = [
     cName: "nav-text",
   },
   {
-    title: "Patient Register",
+    title: "Register",
     path: "/patientsignup",
     icon: <IoIcons.IoMdPeople />,
     cName: "nav-text",
@@ -65,8 +65,8 @@ export const SideBarPatient = (patient_id) => [
     cName: "nav-text",
   },
   {
-    title: "To-Do View Booked Appoinments",
-    path: "/adminsignin",
+    title: "View Booked Appoinments",
+    path: `/view_booked_apts/${patient_id}`,
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: "nav-text",
   },

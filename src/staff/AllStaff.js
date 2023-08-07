@@ -39,7 +39,10 @@ export default function AllStaff() {
           Add New Staff
         </ButtonLink> */}
         <a>
-          <Link className="btn btn-outline-primary mx-2" to={"/addstaff"}>
+          <Link
+            className="btn btn-outline-primary btn-lg mx-2"
+            to={"/addstaff"}
+          >
             Add New Staff
           </Link>
         </a>
@@ -48,6 +51,7 @@ export default function AllStaff() {
           <thead>
             <tr>
               <th scope="col">ID</th>
+              <th scope="col">Role</th>
               <th scope="col">Name</th>
               <th scope="col">Surname</th>
               <th scope="col">Phone Number</th>
@@ -60,6 +64,7 @@ export default function AllStaff() {
                 <th scope="row" key={staff.id}>
                   {staff.id}
                 </th>
+                <td>{staff.role}</td>
                 <td>{staff.first_name}</td>
                 <td>{staff.last_name}</td>
                 <td>{staff.phone_number}</td>

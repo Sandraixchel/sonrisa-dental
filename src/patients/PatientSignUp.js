@@ -28,7 +28,7 @@ export default function PatientRegister() {
     <div className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-          <h2 className="text-center m-4">Patient Sign Up</h2>
+          <h2 className="text-center m-4">Create New Account</h2>
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="mb-3">
               <label htmlFor="Name" className="form-label">
@@ -87,7 +87,7 @@ export default function PatientRegister() {
             <button type="submit" className="btn btn-outline-primary">
               Submit
             </button>
-            <Link className="btn btn-outline-danger mx-2" to="/allpatients">
+            <Link className="btn btn-outline-danger mx-2" to="/">
               Cancel
             </Link>
           </form>

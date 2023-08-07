@@ -20,7 +20,7 @@ export default function AdminSignIn() {
     e.preventDefault();
     const result = await axios.post("http://localhost:8080/adminsignin", staff); //To POST info into the data base by using axios
     localStorage.setItem("admin", JSON.stringify(result.data)); //to local store the staff object whenever the admin signs in
-    navigate(`/admindesktop`); //To redirect the admin to admin desktop once its signed in
+    navigate(`/viewbookedapt`); //To redirect the admin to view all booked appointmentsonce its signed in
     window.location.reload();
   };
 

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import Swal from "sweetalert2";
 
 //Creates a map linking the appointment type with its respective cost
 const APPOINTMENT_COSTS = {
@@ -17,6 +20,7 @@ const APPOINTMENT_COSTS = {
 
 export default function ViewAvailableAppointments() {
   const [appointments, setAppointment] = useState([]);
+  let navigate = useNavigate();
 
   const [selectedAppointmentType, setSelectedAppoinmentType] =
     useState("CLEANING"); // Declare new variable to store what is currently selecting on the drop down
@@ -76,8 +80,9 @@ export default function ViewAvailableAppointments() {
       "http://localhost:8080/appointment",
       appointmentBody
     );
-
-    alert("Appointment Booked!");
+    //alert("Appointment Booked!");
+    //After the appointment is ooked the browser navigates to the patients profile
+    navigate(`/patientprofile/${selected_patient.id}`); //To redirect to patient's profile page by using the id given by the back end
   };
 
   return (
@@ -137,12 +142,21 @@ export default function ViewAvailableAppointments() {
               <button
                 type="button"
                 className="btn btn-primary"
-                onClick={(e) => bookAppointment()}
+                onClick={(e) => {
+                  bookAppointment();
+                  Swal.fire({
+                    title: "Your Appointment is booked",
+                    text: "Please contact us if you have any questions",
+                    icon: "success",
+                    confirmButtonText: "Done",
+                  });
+                }}
               >
                 Book Appointment
               </button>
             ) : null}
           </div>
+          <script src="sweetalert2.all.min.js"></script>
         </div>
       </div>
     </div>

@@ -35,6 +35,7 @@ import PatientSignIn from "./patients/PatientSignIn";
 import PatientSignUp from "./patients/PatientSignUp";
 import CompleteProfile from "./patients/CompleteProfile";
 import PatientProfile from "./patients/PatientProfile";
+import ViewPatientAppointments from "./patients/ViewPatientAppointments";
 
 //Staff
 import AllStaff from "./staff/AllStaff";
@@ -79,6 +80,11 @@ function App() {
               path="/viewavailableapts/:staff_id"
               element={<ViewAvailableAppointments />}
             />
+            <Route
+              exact
+              path="/view_booked_apts/:patient_id"
+              element={<ViewPatientAppointments />}
+            />
           </Route>
 
           {/* pages */}
@@ -110,6 +116,7 @@ function App() {
               path="/editappointment/:id"
               element={<EditAppointment />}
             />
+
             <Route
               exact
               path="/invoice_appointment/:id"
