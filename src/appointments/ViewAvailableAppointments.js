@@ -99,6 +99,26 @@ export default function ViewAvailableAppointments() {
             onChange={onChange}
             value={selected_date}
           />
+          <div>
+            {selected_slot ? ( //ternary condition to only show the "Book Appointment" button if selected_slot has been given a value
+              <button
+                type="button"
+                className="btn btn-warning mt-3"
+                onClick={(e) => {
+                  bookAppointment();
+                  Swal.fire({
+                    title: "Your Appointment is booked",
+                    text: "Please contact us if you have any questions",
+                    icon: "success",
+                    confirmButtonText: "Done",
+                    confirmButtonColor: "#4890fd",
+                  });
+                }}
+              >
+                Book Appointment
+              </button>
+            ) : null}
+          </div>
         </div>
         <div className="col">
           <select
@@ -137,26 +157,7 @@ export default function ViewAvailableAppointments() {
               )
             )}
           </div>
-          <div>
-            {selected_slot ? ( //ternary condition to only show the "Book Appointment" button if selected_slot has been given a value
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={(e) => {
-                  bookAppointment();
-                  Swal.fire({
-                    title: "Your Appointment is booked",
-                    text: "Please contact us if you have any questions",
-                    icon: "success",
-                    confirmButtonText: "Done",
-                    confirmButtonColor: "#4890fd",
-                  });
-                }}
-              >
-                Book Appointment
-              </button>
-            ) : null}
-          </div>
+
           <script src="sweetalert2.all.min.js"></script>
         </div>
       </div>
