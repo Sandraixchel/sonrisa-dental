@@ -9,9 +9,10 @@ export default function PatientRegister() {
     first_name: "",
     email: "",
     password: "",
+    confirm_password: "",
   });
 
-  const { first_name, email, password } = patient;
+  const { first_name, email, password, confirm_password } = patient;
 
   const onInputChange = (e) => {
     setPatient({ ...patient, [e.target.name]: e.target.value });
@@ -20,6 +21,7 @@ export default function PatientRegister() {
   const onSubmit = async (e) => {
     e.preventDefault();
     const result = await axios.post("http://localhost:8080/patient", patient); //To POST info into the data base by using axios
+    localStorage.setItem("patient", JSON.stringify(result.data)); //to local store the patient object
     navigate(`/completeprofile/${result.data.id}`); //To redirect to complete patient's profile page by using the id given by the back end
     window.location.reload(); //Reloads the page in order to get the data stored in local storage
   };
@@ -39,6 +41,7 @@ export default function PatientRegister() {
                 className="form-control"
                 placeholder="Enter your first name"
                 name="first_name"
+                required
                 value={first_name}
                 onChange={(e) => onInputChange(e)}
               />
@@ -48,10 +51,11 @@ export default function PatientRegister() {
                 E-mail
               </label>
               <input
-                type={"text"}
+                type={"email"}
                 className="form-control"
                 placeholder="Enter e-mail address"
                 name="email"
+                required
                 value={email}
                 onChange={(e) => onInputChange(e)}
               />
@@ -61,10 +65,12 @@ export default function PatientRegister() {
                 Password
               </label>
               <input
-                type={"text"}
+                type={"password"}
                 className="form-control"
                 placeholder="Enter password"
                 name="password"
+                minLength={"8"}
+                required
                 value={password}
                 onChange={(e) => onInputChange(e)}
               />
@@ -75,11 +81,13 @@ export default function PatientRegister() {
                 Confirm Password
               </label>
               <input
-                type={"text"}
+                type={"password"}
                 className="form-control"
                 placeholder="Enter password"
-                name="password"
-                value={password}
+                name="confirm_password"
+                minLength={"8"}
+                required
+                value={confirm_password}
                 onChange={(e) => onInputChange(e)}
               />
             </div>

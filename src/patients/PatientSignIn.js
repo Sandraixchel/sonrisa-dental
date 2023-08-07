@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function PatientSignIn() {
   let navigate = useNavigate();
@@ -18,14 +19,25 @@ export default function PatientSignIn() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const result = await axios.post(
-      "http://localhost:8080/patientsignin",
-      patient
-    ); //To POST info into the data base by using axios
 
-    localStorage.setItem("patient", JSON.stringify(result.data)); //to local store the patient object
-    navigate(`/patientprofile/${result.data.id}`); //To redirect to patient's profile page by using the id given by the back end
-    window.location.reload();
+    //if the user enter an incorrect email or password, the bowser will show an alert and allow the user to re enter them again
+    try {
+      const result = await axios.post(
+        "http://localhost:8080/patientsignin",
+        patient
+      ); //To POST info into the data base by using axios
+
+      localStorage.setItem("patient", JSON.stringify(result.data)); //to local store the patient object
+      navigate(`/patientprofile/${result.data.id}`); //To redirect to patient's profile page by using the id given by the back end
+      window.location.reload();
+    } catch (error) {
+      Swal.fire({
+        title: "Incorrect Email or Password",
+        icon: "warning",
+        confirmButtonText: "Try Again",
+        confirmButtonColor: "#4890fd",
+      });
+    }
   };
 
   return (
@@ -40,7 +52,7 @@ export default function PatientSignIn() {
                 E-mail
               </label>
               <input
-                type={"text"}
+                type={"email"}
                 className="form-control"
                 placeholder="Enter e-mail address"
                 name="email"
@@ -76,6 +88,7 @@ export default function PatientSignIn() {
           </form>
         </div>
       </div>
+      <script src="sweetalert2.all.min.js"></script>
     </div>
   );
 }

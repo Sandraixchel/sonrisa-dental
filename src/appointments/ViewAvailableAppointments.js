@@ -149,6 +149,7 @@ export default function ViewAvailableAppointments() {
                     text: "Please contact us if you have any questions",
                     icon: "success",
                     confirmButtonText: "Done",
+                    confirmButtonColor: "#4890fd",
                   });
                 }}
               >

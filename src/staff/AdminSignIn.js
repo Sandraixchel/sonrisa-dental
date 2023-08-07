@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function AdminSignIn() {
   let navigate = useNavigate();
@@ -18,10 +19,24 @@ export default function AdminSignIn() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const result = await axios.post("http://localhost:8080/adminsignin", staff); //To POST info into the data base by using axios
-    localStorage.setItem("admin", JSON.stringify(result.data)); //to local store the staff object whenever the admin signs in
-    navigate(`/viewbookedapt`); //To redirect the admin to view all booked appointmentsonce its signed in
-    window.location.reload();
+
+    //if the user enter an incorrect email or password, the bowser will show an alert and allow the user to re enter them again
+    try {
+      const result = await axios.post(
+        "http://localhost:8080/adminsignin",
+        staff
+      ); //To POST info into the data base by using axios
+      localStorage.setItem("admin", JSON.stringify(result.data)); //to local store the staff object whenever the admin signs in
+      navigate(`/viewbookedapt`); //To redirect the admin to view all booked appointmentsonce its signed in
+      window.location.reload();
+    } catch (error) {
+      Swal.fire({
+        title: "Incorrect Email or Password",
+        icon: "warning",
+        confirmButtonText: "Try Again",
+        confirmButtonColor: "#4890fd",
+      });
+    }
   };
 
   return (
@@ -36,7 +51,7 @@ export default function AdminSignIn() {
                 E-mail
               </label>
               <input
-                type={"text"}
+                type={"email"}
                 className="form-control"
                 placeholder="Enter e-mail address"
                 name="email"

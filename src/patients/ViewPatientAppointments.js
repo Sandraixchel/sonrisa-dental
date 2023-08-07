@@ -35,6 +35,7 @@ export default function ViewPatientAppointments() {
 
               <th scope="col">Patient ID</th>
               <th scope="col">Staff ID</th>
+              <th scope="col">Invoice</th>
             </tr>
           </thead>
           <tbody>
@@ -65,13 +66,13 @@ export default function ViewPatientAppointments() {
                     to={`/editappointment/${appointment.id}`}
                   >
                     Edit
-                  </Link>
+                  </Link> */}
                   <Link
                     className="btn btn-warning btn-sm mx-2"
-                    to={`/invoice_appointment/${appointment.id}`}
+                    to={`/view_invoice/${appointment.id}`}
                   >
                     Invoice
-                  </Link> */}
+                  </Link>
                   {/* <button
                     className="btn btn-danger btn-sm mx-2"
                     onClick={() => deleteAppointment(appointment.id)}

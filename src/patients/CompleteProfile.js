@@ -84,6 +84,7 @@ export default function EditPatient() {
                 className="form-control"
                 placeholder="Enter surname"
                 name="last_name"
+                required
                 value={last_name}
                 onChange={(e) => onInputChange(e)}
               />
@@ -97,6 +98,7 @@ export default function EditPatient() {
                 className="form-control"
                 placeholder="Enter date of birth"
                 name="dob"
+                required
                 value={dob}
                 onChange={(e) => onInputChange(e)}
               />
@@ -110,6 +112,7 @@ export default function EditPatient() {
                 className="form-control"
                 placeholder="Enter phone number"
                 name="phone_number"
+                required
                 value={phone_number}
                 onChange={(e) => onInputChange(e)}
               />
@@ -124,6 +127,7 @@ export default function EditPatient() {
                 className="form-control"
                 placeholder="Enter Insurance Provider"
                 name="insurance_provider"
+                required
                 value={insurance_provider}
                 onChange={(e) => onInputChange(e)}
               />
@@ -137,6 +141,7 @@ export default function EditPatient() {
                 className="form-control"
                 placeholder="Enter Insurance Number"
                 name="insurance_number"
+                required
                 value={insurance_number}
                 onChange={(e) => onInputChange(e)}
               />
@@ -144,7 +149,7 @@ export default function EditPatient() {
             <button type="submit" className="btn btn-outline-primary">
               Submit
             </button>
-            <Link className="btn btn-outline-danger mx-2" to="/allpatients">
+            <Link className="btn btn-outline-danger mx-2" to="/">
               Cancel
             </Link>
           </form>
