@@ -50,6 +50,10 @@
   font-family: "Lato", sans-serif;
 }
 
+.sonrisa-logo {
+  float: right;
+}
+
 .home,
 .reports,
 .products {
@@ -58,8 +62,12 @@
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-  background-color: #91cded;
-  color: #2a2727;
+  background: radial-gradient(
+    circle,
+    rgba(56, 162, 198, 0.9892550770308123) 0%,
+    rgba(157, 197, 229, 1) 100%
+  );
+  color: #ffffff;
 }
 
 /* Navbar CSS */
@@ -88,6 +96,7 @@
   top: 0;
   left: -100%;
   transition: 850ms;
+  z-index: 10000;
 }
 
 .nav-menu.active {

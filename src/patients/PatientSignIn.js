@@ -42,9 +42,8 @@ export default function PatientSignIn() {
 
   return (
     <div className="container">
-      <img src="/assets/images/SonrisaDentalLogo.png" />
       <div className="row">
-        <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
+        <div className="col-md-6 offset-md-3 border rounded p-4 mt-5 shadow">
           <h2 className="text-center m-4">Patient Sign In</h2>
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="mb-3">

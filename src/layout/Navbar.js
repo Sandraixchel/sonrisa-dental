@@ -43,10 +43,14 @@ export default function Navbar() {
   return (
     <>
       <IconContext.Provider value={{ color: "undefined" }}>
-        <div className="z-3 navbar">
+        <div className="z-6 navbar">
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+          <img
+            className="sonrisa-logo"
+            src="/assets/images/SonrisaDentalLogo.png"
+          />
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
