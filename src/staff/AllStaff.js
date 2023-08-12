@@ -56,6 +56,7 @@ export default function AllStaff() {
               <th scope="col">Surname</th>
               <th scope="col">Phone Number</th>
               <th scope="col">Email</th>
+              <th scope="col">Description</th>
             </tr>
           </thead>
           <tbody>
@@ -69,6 +70,7 @@ export default function AllStaff() {
                 <td>{staff.last_name}</td>
                 <td>{staff.phone_number}</td>
                 <td>{staff.email}</td>
+                <td>{staff.description}</td>
                 <td>
                   <Link
                     className="btn btn-primary mx-2"

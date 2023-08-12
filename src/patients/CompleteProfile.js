@@ -55,12 +55,12 @@ export default function EditPatient() {
   return (
     <div className="container">
       <h1>
-        Welcome {first_name}! We just need a fex more details to complete your
-        profile
+        Welcome {first_name}! We just need a few more details to complete your
+        profile:
       </h1>
       <div className="row">
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-          <h2 className="text-center m-4">Edit Patient</h2>
+          {/* <h2 className="text-center m-4">Edit Patient</h2> */}
           <form onSubmit={(e) => onSubmit(e)}>
             <div className="mb-3">
               <label htmlFor="Name" className="form-label">

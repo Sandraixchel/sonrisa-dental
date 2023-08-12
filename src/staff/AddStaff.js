@@ -11,10 +11,10 @@ export default function AddStaff() {
     phone_number: "",
     email: "",
     role: "",
-    working_days: "",
+    description: "",
   });
 
-  const { first_name, last_name, phone_number, email, role, working_days } =
+  const { first_name, last_name, phone_number, email, role, description } =
     staff;
 
   const onInputChange = (e) => {
@@ -77,7 +77,7 @@ export default function AddStaff() {
                 Email
               </label>
               <input
-                type={"text"}
+                type={"email"}
                 className="form-control"
                 placeholder="Enter email address"
                 name="email"
@@ -99,15 +99,15 @@ export default function AddStaff() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="working_days" className="form-label">
-                Working Days
+              <label htmlFor="description" className="form-label">
+                Description
               </label>
               <input
                 type={"text"}
                 className="form-control"
-                placeholder="Enter Working Daysr"
-                name="working_days"
-                value={working_days}
+                placeholder="Enter Description"
+                name="description"
+                value={description}
                 onChange={(e) => onInputChange(e)}
               />
             </div>

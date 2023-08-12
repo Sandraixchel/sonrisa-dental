@@ -64,8 +64,8 @@
   font-size: 3rem;
   background: radial-gradient(
     circle,
-    rgba(56, 162, 198, 0.9892550770308123) 0%,
-    rgba(157, 197, 229, 1) 100%
+    rgba(153, 196, 210, 0.989) 0%,
+    rgb(172, 216, 250) 100%
   );
   color: #ffffff;
 }

@@ -9,7 +9,7 @@ export default function ViewStaff() {
     phone_number: "",
     email: "",
     role: "",
-    working_days: "",
+    description: "",
   });
 
   const { id } = useParams();
@@ -55,8 +55,8 @@ export default function ViewStaff() {
                   {staff.role}
                 </li>
                 <li className="list-group-item">
-                  <b>Working Days:</b>
-                  {staff.working_days}
+                  <b>Description : </b>
+                  {staff.description}
                 </li>
               </ul>
             </div>
