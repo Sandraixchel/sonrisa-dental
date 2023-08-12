@@ -12,12 +12,20 @@ export default function EditStaff() {
     last_name: "",
     phone_number: "",
     email: "",
+    password: "",
     role: "",
     description: "",
   });
 
-  const { first_name, last_name, phone_number, email, role, description } =
-    staff;
+  const {
+    first_name,
+    last_name,
+    phone_number,
+    email,
+    password,
+    role,
+    description,
+  } = staff;
 
   const onInputChange = (e) => {
     setStaff({ ...staff, [e.target.name]: e.target.value });
@@ -88,11 +96,24 @@ export default function EditStaff() {
                 Email
               </label>
               <input
-                type={"text"}
+                type={"email"}
                 className="form-control"
                 placeholder="Enter email address"
                 name="email"
                 value={email}
+                onChange={(e) => onInputChange(e)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="Email" className="form-label">
+                Password
+              </label>
+              <input
+                type={"password"}
+                className="form-control"
+                placeholder="Enter password"
+                name="password"
+                value={password}
                 onChange={(e) => onInputChange(e)}
               />
             </div>

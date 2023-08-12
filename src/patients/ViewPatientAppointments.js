@@ -34,7 +34,7 @@ export default function ViewPatientAppointments() {
               <th scope="col">Time</th>
 
               <th scope="col">Patient ID</th>
-              <th scope="col">Staff ID</th>
+              <th scope="col">Dentist</th>
               <th scope="col">Invoice</th>
             </tr>
           </thead>
@@ -53,7 +53,9 @@ export default function ViewPatientAppointments() {
                 </td>
 
                 <td>{appointment.patient?.id}</td>
-                <td>{appointment.staff?.id}</td>
+                <td>
+                  {appointment.staff?.first_name} {appointment.staff?.last_name}
+                </td>
                 <td>
                   {/* <Link
                     className="btn btn-primary btn-sm mx-2"

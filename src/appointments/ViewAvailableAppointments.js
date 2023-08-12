@@ -134,7 +134,7 @@ export default function ViewAvailableAppointments() {
             <option value="CROWN">Crown</option>
           </select>
 
-          {/* {selectedAppointmentType} */}
+          {/* {selectedAppointmentType.APPOINTMENT_COSTS} */}
 
           <div className="row">
             {appointments.map(

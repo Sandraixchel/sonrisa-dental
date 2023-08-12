@@ -149,9 +149,9 @@ export default function EditPatient() {
             <button type="submit" className="btn btn-outline-primary">
               Submit
             </button>
-            <Link className="btn btn-outline-danger mx-2" to="/">
+            {/* <Link className="btn btn-outline-danger mx-2" to="/">
               Cancel
-            </Link>
+            </Link> */}
           </form>
         </div>
       </div>
